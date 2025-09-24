@@ -34,7 +34,7 @@ void GL_Classes::Shader::CompileShaders()
 	if (!successful)
 	{
 		glGetShaderInfoLog(vs, 512, NULL, GLInfoLog);
-		std::cout << "\nCOMPILATION ERROR IN VERTEX SHADER (" << m_VertexPath << ")" << "\n" << GLInfoLog << "\n\n";
+		cout << "\nCOMPILATION ERROR IN VERTEX SHADER (" << m_VertexPath << ")" << "\n" << GLInfoLog << "\n\n";
 	}
 
 	glCompileShader(fs);
@@ -43,7 +43,7 @@ void GL_Classes::Shader::CompileShaders()
 	if (!successful)
 	{
 		glGetShaderInfoLog(fs, 512, NULL, GLInfoLog);
-		std::cout << "\nCOMPILATION ERROR IN FRAGMENT SHADER (" << m_FragmentPath << ")" << "\n" << GLInfoLog << "\n";
+		cout << "\nCOMPILATION ERROR IN FRAGMENT SHADER (" << m_FragmentPath << ")" << "\n" << GLInfoLog << "\n";
 	}
 
 	m_Program = glCreateProgram();
@@ -56,7 +56,7 @@ void GL_Classes::Shader::CompileShaders()
 	if (!successful)
 	{
 		glGetProgramInfoLog(m_Program, 512, NULL, GLInfoLog);
-		std::cout << "ERROR : SHADER LINKING FAILED : \n" << GLInfoLog << std::endl;
+		cout << "ERROR : SHADER LINKING FAILED : \n" << GLInfoLog << endl;
 	}
 
 	glDeleteShader(vs);
@@ -71,4 +71,33 @@ void GL_Classes::Shader::Use()
 GLuint GL_Classes::Shader::getProgramID() const
 {
 	return m_Program;
+}
+
+void GL_Classes::Shader::SetMatrix4(const GLchar* name, glm::mat4& matrix)
+{
+	glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, glm::value_ptr(matrix));
+}
+
+GLuint GL_Classes::Shader::GetUniformLocation(string name) const
+{
+	return glGetUniformLocation(m_Program, name.c_str());
+}
+
+std::string GL_Classes::Shader::getFileContent(const string path)
+{
+	std::ifstream shaderFile;
+	shaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+	try
+	{
+		shaderFile.open(path);
+		std::stringstream shaderStream;
+		shaderStream << shaderFile.rdbuf();
+		shaderFile.close();
+		return shaderStream.str();
+	}
+	catch (std::ifstream::failure e)
+	{
+		std::cerr << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ: " << e.what() << std::endl;
+		return "";
+	}
 }

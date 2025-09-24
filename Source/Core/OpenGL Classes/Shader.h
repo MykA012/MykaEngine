@@ -2,6 +2,9 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include <iostream>
 #include <string>
@@ -11,7 +14,6 @@
 namespace GL_Classes
 {
 	using namespace std;
-
 
 	class Shader
 	{
@@ -25,6 +27,11 @@ namespace GL_Classes
 
 		GLuint getProgramID() const;
 
+		void SetMatrix4(const GLchar* name, glm::mat4& matrix);
+
+	public:
+		static inline string SHADERS_DIR = "C:/Users/Vova/source/repos/MykaEngine/Source/Shaders/";
+
 	private:
 		GLuint m_Program;
 
@@ -33,23 +40,7 @@ namespace GL_Classes
 		string m_VertexData;
 		string m_FragmentData;
 
-		string getFileContent(const string path)
-		{
-			std::ifstream shaderFile;
-			shaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-			try
-			{
-				shaderFile.open(path);
-				std::stringstream shaderStream;
-				shaderStream << shaderFile.rdbuf();
-				shaderFile.close();
-				return shaderStream.str();
-			}
-			catch (std::ifstream::failure e)
-			{
-				std::cerr << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ: " << e.what() << std::endl;
-				return "";
-			}
-		}
+		GLuint GetUniformLocation(string name) const;
+		string getFileContent(const string path);
 	};
 }

@@ -22,7 +22,7 @@
     <ClCompile Include="Source\Core\OpenGL Classes\Shader.cpp" />
     <ClCompile Include="Source\Core\OpenGL Classes\VertexArray.cpp" />
     <ClCompile Include="Source\Core\OpenGL Classes\VertexBuffer.cpp" />
-    <ClCompile Include="Source\Core\TriangleRenderer.cpp" />
+    <ClCompile Include="Source\Core\CubeRenderer.cpp" />
     <ClCompile Include="Source\glad.c" />
     <ClCompile Include="Source\Main.cpp" />
   </ItemGroup>
@@ -30,9 +30,11 @@
     <ClInclude Include="Source\Core\OpenGL Classes\Shader.h" />
     <ClInclude Include="Source\Core\OpenGL Classes\VertexArray.h" />
     <ClInclude Include="Source\Core\OpenGL Classes\VertexBuffer.h" />
-    <ClInclude Include="Source\Core\TriangleRenderer.h" />
+    <ClInclude Include="Source\Core\CubeRenderer.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Source\Shaders\CubeRendererFrag.glsl" />
+    <None Include="Source\Shaders\CubeRendererVert.glsl" />
     <None Include="Source\Shaders\fragment.glsl" />
     <None Include="Source\Shaders\vertex.glsl" />
   </ItemGroup>

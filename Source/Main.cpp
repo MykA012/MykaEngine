@@ -1,4 +1,4 @@
-#include "Core/TriangleRenderer.h"
+#include "Core/CubeRenderer.h"
 
 const unsigned int width = 800;
 const unsigned int height = 600;
@@ -23,7 +23,7 @@ int main()
 
 	glEnable(GL_DEPTH_TEST);
 
-	Shapes::TriangleRenderer triangleRenderer;
+	CubeRenderer cubeRenderer;
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -37,7 +37,7 @@ int main()
 			prevTime = crntTime;
 		}
 
-		triangleRenderer.RenderTriangle(rotation, nullptr);
+		cubeRenderer.RenderCube(rotation, nullptr);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
