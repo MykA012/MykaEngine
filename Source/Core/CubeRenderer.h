@@ -19,7 +19,7 @@ public:
 	CubeRenderer();
 	~CubeRenderer();
 
-	void RenderCube(/*glm::vec3& position, */float rotation/*, const glm::mat4& projection, const glm::mat4& view*/, Shader* shader);
+	void RenderCube(const glm::vec3& position, float rotation, const glm::mat4& projection, const glm::mat4& view, Shader* shader);
 
 private:
 	VertexBuffer m_VBO;

@@ -27,7 +27,7 @@ namespace GL_Classes
 
 		GLuint getProgramID() const;
 
-		void SetMatrix4(const GLchar* name, glm::mat4& matrix);
+		void SetMatrix4(const GLchar* name, const glm::mat4& matrix);
 
 	public:
 		static inline string SHADERS_DIR = "C:/Users/Vova/source/repos/MykaEngine/Source/Shaders/";
@@ -40,7 +40,7 @@ namespace GL_Classes
 		string m_VertexData;
 		string m_FragmentData;
 
-		GLuint GetUniformLocation(string name) const;
+		GLuint GetUniformLocation(const string name) const;
 		string getFileContent(const string path);
 	};
 }

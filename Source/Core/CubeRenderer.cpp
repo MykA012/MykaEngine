@@ -71,7 +71,7 @@ CubeRenderer::CubeRenderer() : m_DefaultShader(Shader::SHADERS_DIR + "CubeRender
 
 CubeRenderer::~CubeRenderer() {}
 
-void CubeRenderer::RenderCube(/*glm::vec3& position, */float rotation/*, const glm::mat4& projection, const glm::mat4& view*/, Shader* shader)
+void CubeRenderer::RenderCube(const glm::vec3& position, float rotation, const glm::mat4& projection, const glm::mat4& view, Shader* shader)
 {
 	Shader* useShader;
 
@@ -84,20 +84,20 @@ void CubeRenderer::RenderCube(/*glm::vec3& position, */float rotation/*, const g
 		useShader = shader;
 	}
 
-	glm::mat4 model = glm::mat4(1.0f);
-	model = glm::rotate(model, glm::radians(rotation), glm::vec3(2.0f, 2.0f, 2.0f));
+	glm::mat4 model = glm::translate(glm::mat4(1.0f), position);
+	model = glm::rotate(model, glm::radians(rotation), glm::vec3(1.0f, 0.5f, 0.5f));
 
-	glm::mat4 view = glm::mat4(1.0f);
-	glm::mat4 proj = glm::mat4(1.0f);
+	//glm::mat4 view = glm::mat4(1.0f);
+	//glm::mat4 proj = glm::mat4(1.0f);
 
-	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
-	proj = glm::perspective(glm::radians(45.0f), (float)800 / (float)600, 0.1f, 100.0f);
+	//view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+	//proj = glm::perspective(glm::radians(45.0f), (float)800 / (float)600, 0.1f, 100.0f);
 
 
 	useShader->Use();
 	useShader->SetMatrix4("model", model);
 	useShader->SetMatrix4("view", view);
-	useShader->SetMatrix4("proj", proj);
+	useShader->SetMatrix4("projection", projection);
 
 
 	m_VAO.Bind();
