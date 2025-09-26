@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Core\Camera.cpp" />
+    <ClCompile Include="Source\Core\OpenGL Classes\IndexBuffer.cpp" />
     <ClCompile Include="Source\Core\OpenGL Classes\Shader.cpp" />
     <ClCompile Include="Source\Core\OpenGL Classes\VertexArray.cpp" />
     <ClCompile Include="Source\Core\OpenGL Classes\VertexBuffer.cpp" />
@@ -27,6 +29,8 @@
     <ClCompile Include="Source\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Core\Camera.h" />
+    <ClInclude Include="Source\Core\OpenGL Classes\IndexBuffer.h" />
     <ClInclude Include="Source\Core\OpenGL Classes\Shader.h" />
     <ClInclude Include="Source\Core\OpenGL Classes\VertexArray.h" />
     <ClInclude Include="Source\Core\OpenGL Classes\VertexBuffer.h" />

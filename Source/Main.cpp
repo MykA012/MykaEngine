@@ -1,7 +1,5 @@
 #include "Core/CubeRenderer.h"
-
-float width = 800;
-float height = 600;
+#include "Core/Camera.h"
 
 int main()
 {
@@ -11,6 +9,9 @@ int main()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+	int width = 800;
+	int height = 600;
+	int transparentKey = GLFW_KEY_T;
 
 	GLFWwindow* window = glfwCreateWindow(width, height, "Simulation", NULL, NULL);
 
@@ -19,10 +20,12 @@ int main()
 	glViewport(0, 0, width, height);
 
 	float rotation = 0.0f;
-	double prevTime = glfwGetTime();
+	float deltaTime = 0.0f;
+	float prevTime = 0.0f;
 
 	glEnable(GL_DEPTH_TEST);
 	
+	Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
 
 	CubeRenderer cubeRenderer;
 
@@ -32,12 +35,12 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		// make transparent
-		if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+		if (glfwGetKey(window, transparentKey) == GLFW_PRESS)
 		{
 			glEnable(GL_POLYGON_SMOOTH);
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		}
-		if (glfwGetKey(window, GLFW_KEY_W) == GLFW_RELEASE)
+		if (glfwGetKey(window, transparentKey) == GLFW_RELEASE)
 		{
 			glDisable(GL_POLYGON_SMOOTH);
 			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -47,16 +50,15 @@ int main()
 		if (crntTime - prevTime >= 1.0 / 60)
 		{
 			rotation += 1.0f;
+			deltaTime = crntTime - prevTime;
 			prevTime = crntTime;
 		}
 
-		glm::vec3 position = glm::vec3(0.0f, 0.0f, -5.0f);
-		float FOV = glm::radians(100.0f);
+		camera.Inputs(window, deltaTime);
+		camera.UpdateMatrices(45.0f, 0.1f, 10000.0f);
 
-		float RenderDistanceNear = 0.1f;
-		float RenderDistanceFar = 100.0f;
+		cubeRenderer.RenderCube(glm::vec3(0.0f, 0.0f, -3.0f), rotation, camera.GetProjectionMatrix(), camera.GetViewMatrix(), nullptr);
 
-		cubeRenderer.RenderCube(position, rotation, glm::perspective(FOV, width / height, RenderDistanceNear, RenderDistanceFar), glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f)), nullptr);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();

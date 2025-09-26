@@ -16,6 +16,12 @@
     <Filter Include="Файлы ресурсов\Shaders">
       <UniqueIdentifier>{629e36d9-7809-4593-8a35-c3b1c72256e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\GL_Classes">
+      <UniqueIdentifier>{fdc2bb19-329a-42cd-9ec3-5dd11e5d1ac7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GL_Classes">
+      <UniqueIdentifier>{c816d01f-161d-47f8-9188-f89286601645}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\glad.c">
@@ -24,31 +30,43 @@
     <ClCompile Include="Source\Main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Core\OpenGL Classes\Shader.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Core\OpenGL Classes\VertexBuffer.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Core\OpenGL Classes\VertexArray.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Core\CubeRenderer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Core\OpenGL Classes\VertexBuffer.cpp">
+      <Filter>Исходные файлы\GL_Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\OpenGL Classes\VertexArray.cpp">
+      <Filter>Исходные файлы\GL_Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\OpenGL Classes\Shader.cpp">
+      <Filter>Исходные файлы\GL_Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\Camera.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\OpenGL Classes\IndexBuffer.cpp">
+      <Filter>Исходные файлы\GL_Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Core\OpenGL Classes\Shader.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Core\OpenGL Classes\VertexBuffer.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Core\OpenGL Classes\VertexArray.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Core\CubeRenderer.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\OpenGL Classes\Shader.h">
+      <Filter>Файлы заголовков\GL_Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\OpenGL Classes\VertexArray.h">
+      <Filter>Файлы заголовков\GL_Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\OpenGL Classes\VertexBuffer.h">
+      <Filter>Файлы заголовков\GL_Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\Camera.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\OpenGL Classes\IndexBuffer.h">
+      <Filter>Файлы заголовков\GL_Classes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

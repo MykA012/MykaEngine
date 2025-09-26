@@ -8,6 +8,7 @@
 
 #include "OpenGL Classes/VertexBuffer.h"
 #include "OpenGL Classes/VertexArray.h"
+#include "OpenGL Classes/IndexBuffer.h"
 #include "OpenGL Classes/Shader.h"
 
 
@@ -24,5 +25,6 @@ public:
 private:
 	VertexBuffer m_VBO;
 	VertexArray m_VAO;
+	IndexBuffer m_IBO;
 	Shader m_DefaultShader;
 };

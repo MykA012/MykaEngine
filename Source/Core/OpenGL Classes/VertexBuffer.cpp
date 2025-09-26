@@ -3,7 +3,7 @@
 GL_Classes::VertexBuffer::VertexBuffer() : ID(0)
 {
 	glGenBuffers(1, &ID);
-	glBindBuffer(GL_ARRAY_BUFFER, ID);
+	this->Bind();
 }
 
 GL_Classes::VertexBuffer::~VertexBuffer()
