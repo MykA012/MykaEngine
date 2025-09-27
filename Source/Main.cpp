@@ -9,8 +9,8 @@ int main()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	int width = 800;
-	int height = 600;
+	int width = 1920;
+	int height = 1080;
 	int transparentKey = GLFW_KEY_T;
 
 	GLFWwindow* window = glfwCreateWindow(width, height, "Simulation", NULL, NULL);
@@ -19,15 +19,22 @@ int main()
 	gladLoadGL();
 	glViewport(0, 0, width, height);
 
+	// Rotation vars
 	float rotation = 0.0f;
 	float deltaTime = 0.0f;
 	float prevTime = 0.0f;
 
 	glEnable(GL_DEPTH_TEST);
 	
-	Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
+	// Camera
+	Camera camera(width, height, glm::vec3(0.0f, 2.0f, 5.0f));
 
+	// Renderer
 	CubeRenderer cubeRenderer;
+
+	// Textures
+	Texture brick("C:/Users/Vova/source/repos/MykaEngine/Source/Resources/brick.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+	Texture grass_block("C:/Users/Vova/source/repos/MykaEngine/Source/Resources/grass_block.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -55,9 +62,15 @@ int main()
 		}
 
 		camera.Inputs(window, deltaTime);
-		camera.UpdateMatrices(45.0f, 0.1f, 10000.0f);
+		camera.UpdateMatrices(45.0f, 0.1f, 100.0f);
 
-		cubeRenderer.RenderCube(glm::vec3(0.0f, 0.0f, -3.0f), rotation, camera.GetProjectionMatrix(), camera.GetViewMatrix(), nullptr);
+		for (float i = 0.0f; i < 50; i += 1.0f)
+		{
+			for (float j = 0.0f; j < 50; j += 1.0f)
+			{
+				cubeRenderer.RenderCube(glm::vec3(i, 0.0f, j), brick, 0, camera.GetProjectionMatrix(), camera.GetViewMatrix(), nullptr);
+			}
+		}
 
 
 		glfwSwapBuffers(window);

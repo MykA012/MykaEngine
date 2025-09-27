@@ -21,6 +21,8 @@ public:
 	const glm::mat4& GetProjectionMatrix() const;
 
 	void Inputs(GLFWwindow* window, float deltaTime);
+public:
+	void SetCameraSpeed(float speed);
 
 private:
 	glm::vec3 m_Position;
@@ -30,11 +32,16 @@ private:
 	glm::mat4 m_ViewMatrix = glm::mat4(1.0f);
 	glm::mat4 m_ProjectionMatrix = glm::mat4(1.0f);
 
-	bool m_FirstClick = true;
-
 	int m_Width;
 	int m_Height;
 
-	float m_Velocity = 0.1f;
-	float m_Sensitivity = 100.0f;
+	float m_Speed = 0.1f;
+
+	float m_Yaw = -90.0f;
+	float m_Pitch = 0.0f;
+	bool m_FirstClick = true;
+	float m_MouseSensitivity = 0.1f;
+
+	double m_LastX;
+	double m_LastY;
 };

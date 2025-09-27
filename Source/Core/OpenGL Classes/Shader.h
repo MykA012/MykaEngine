@@ -28,6 +28,7 @@ namespace GL_Classes
 		GLuint getProgramID() const;
 
 		void SetMatrix4(const GLchar* name, const glm::mat4& matrix);
+		void SetInteger(const GLchar* name, GLuint value);
 
 	public:
 		static inline string SHADERS_DIR = "C:/Users/Vova/source/repos/MykaEngine/Source/Shaders/";

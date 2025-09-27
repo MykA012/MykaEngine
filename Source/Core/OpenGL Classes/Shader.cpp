@@ -78,6 +78,11 @@ void GL_Classes::Shader::SetMatrix4(const GLchar* name, const glm::mat4& matrix)
 	glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, glm::value_ptr(matrix));
 }
 
+void GL_Classes::Shader::SetInteger(const GLchar* name, GLuint value)
+{
+	glUniform1i(GetUniformLocation(name), value);
+}
+
 GLuint GL_Classes::Shader::GetUniformLocation(const string name) const
 {
 	return glGetUniformLocation(m_Program, name.c_str());

@@ -6,58 +6,58 @@ CubeRenderer::CubeRenderer() : m_DefaultShader(Shader::SHADERS_DIR + "CubeRender
 
 	GLfloat vertices[] = {
 		// front
-		-0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 1.0f,
-		 0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 1.0f,
-		 0.5f,  0.5f,  0.5f,  0.0f, 0.0f, 1.0f,
+		-0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 1.0f,  0.0f, 0.0f,
+		 0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 1.0f,  1.0f, 0.0f,
+		 0.5f,  0.5f,  0.5f,  0.0f, 0.0f, 1.0f,  1.0f, 1.0f,
 
-		-0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 1.0f,
-		 0.5f,  0.5f,  0.5f,  0.0f, 0.0f, 1.0f,
-		-0.5f,  0.5f,  0.5f,  0.0f, 0.0f, 1.0f,
+		-0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 1.0f,  0.0f, 0.0f,
+		 0.5f,  0.5f,  0.5f,  0.0f, 0.0f, 1.0f,  1.0f, 1.0f,
+		-0.5f,  0.5f,  0.5f,  0.0f, 0.0f, 1.0f,  0.0f, 1.0f,
 
 		// back
-		-0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f,
-		 0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f,
-		 0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 0.0f,
+		-0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f,  1.0f, 0.0f,
+		 0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f,  0.0f, 0.0f,
+		 0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 0.0f,  0.0f, 1.0f,
 
-		-0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f,
-		 0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 0.0f,
-		-0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 0.0f,
+		-0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f,  1.0f, 0.0f,
+		 0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 0.0f,  0.0f, 1.0f,
+		-0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 0.0f,  1.0f, 1.0f,
 
 		// right
-		 0.5f, -0.5f, -0.5f,  0.0f, 1.0f, 0.0f,
-		 0.5f,  0.5f, -0.5f,  0.0f, 1.0f, 0.0f,
-		 0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 0.0f,
+		 0.5f, -0.5f, -0.5f,  0.0f, 1.0f, 0.0f,  1.0f, 0.0f,
+		 0.5f,  0.5f, -0.5f,  0.0f, 1.0f, 0.0f,  1.0f, 1.0f,
+		 0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 0.0f,  0.0f, 1.0f,
 
-		 0.5f, -0.5f, -0.5f,  0.0f, 1.0f, 0.0f,
-		 0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 0.0f,
-		 0.5f, -0.5f,  0.5f,  0.0f, 1.0f, 0.0f,
+		 0.5f, -0.5f, -0.5f,  0.0f, 1.0f, 0.0f,  1.0f, 0.0f,
+		 0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 0.0f,  0.0f, 1.0f,
+		 0.5f, -0.5f,  0.5f,  0.0f, 1.0f, 0.0f,  0.0f, 0.0f,
 
 		 // left
-		 -0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 0.0f,
-		 -0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 0.0f,
-		 -0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 0.0f,
+		 -0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 0.0f,  0.0f, 0.0f,
+		 -0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 0.0f,  0.0f, 1.0f,
+		 -0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 0.0f,  1.0f, 1.0f,
 
-		 -0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 0.0f,
-		 -0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 0.0f,
-		 -0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 0.0f,
+		 -0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 0.0f,  0.0f, 0.0f,
+		 -0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 0.0f,  1.0f, 1.0f,
+		 -0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 0.0f,  1.0f, 0.0f,
 
 		 // top
-		 -0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 1.0f,
-		  0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 1.0f,
-		  0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 1.0f,
+		 -0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 1.0f,  0.0f, 0.0f,
+		  0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 1.0f,  1.0f, 0.0f,
+		  0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 1.0f,  1.0f, 1.0f,
 
-		 -0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 1.0f,
-		  0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 1.0f,
-		 -0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 1.0f,
+		 -0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 1.0f,  0.0f, 0.0f,
+		  0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 1.0f,  1.0f, 1.0f,
+		 -0.5f,  0.5f,  0.5f,  1.0f, 0.0f, 1.0f,  0.0f, 1.0f,
 
 		 // bottom
-		 -0.5f, -0.5f, -0.5f,  0.0f, 1.0f, 1.0f,
-		  0.5f, -0.5f, -0.5f,  0.0f, 1.0f, 1.0f,
-		  0.5f, -0.5f,  0.5f,  0.0f, 1.0f, 1.0f,
+		 -0.5f, -0.5f, -0.5f,  0.0f, 1.0f, 1.0f,  0.0f, 0.0f,
+		  0.5f, -0.5f, -0.5f,  0.0f, 1.0f, 1.0f,  1.0f, 0.0f,
+		  0.5f, -0.5f,  0.5f,  0.0f, 1.0f, 1.0f,  1.0f, 1.0f,
 
-		 -0.5f, -0.5f, -0.5f,  0.0f, 1.0f, 1.0f,
-		  0.5f, -0.5f,  0.5f,  0.0f, 1.0f, 1.0f,
-		 -0.5f, -0.5f,  0.5f,  0.0f, 1.0f, 1.0f
+		 -0.5f, -0.5f, -0.5f,  0.0f, 1.0f, 1.0f,  0.0f, 0.0f,
+		  0.5f, -0.5f,  0.5f,  0.0f, 1.0f, 1.0f,  1.0f, 1.0f,
+		 -0.5f, -0.5f,  0.5f,  0.0f, 1.0f, 1.0f,  0.0f, 1.0f
 	};
 
 	GLfloat TriangleVertices[] = {
@@ -94,15 +94,16 @@ CubeRenderer::CubeRenderer() : m_DefaultShader(Shader::SHADERS_DIR + "CubeRender
 	m_VAO.Bind();
 
 	m_VBO.BufferData(sizeof(vertices), vertices);
-	m_VBO.VertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-	m_VBO.VertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+	m_VBO.VertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+	m_VBO.VertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+	m_VBO.VertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 
 	m_VAO.Unbind();
 }
 
 CubeRenderer::~CubeRenderer() {}
 
-void CubeRenderer::RenderCube(const glm::vec3& position, float rotation, const glm::mat4& projection, const glm::mat4& view, Shader* shader)
+void CubeRenderer::RenderCube(const glm::vec3& position, Texture& texture, float rotation, const glm::mat4& projection, const glm::mat4& view, Shader* shader)
 {
 	Shader* useShader;
 
@@ -118,15 +119,19 @@ void CubeRenderer::RenderCube(const glm::vec3& position, float rotation, const g
 	glm::mat4 model = glm::translate(glm::mat4(1.0f), position);
 	model = glm::rotate(model, glm::radians(rotation), glm::vec3(0.0f, 1.0f, 0.0f));
 
+	texture.Bind();
+
 	useShader->Use();
 	useShader->SetMatrix4("model", model);
 	useShader->SetMatrix4("view", view);
 	useShader->SetMatrix4("projection", projection);
+	useShader->SetInteger("tex0", 0);
 
 
 	m_VAO.Bind();
 	glDrawArrays(GL_TRIANGLES, 0, 36);
 	m_VAO.Unbind();
+	texture.Unbind();
 }
 
 

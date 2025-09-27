@@ -22,6 +22,9 @@
     <Filter Include="Исходные файлы\GL_Classes">
       <UniqueIdentifier>{c816d01f-161d-47f8-9188-f89286601645}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы ресурсов\Textures">
+      <UniqueIdentifier>{c20261d4-761e-4a47-9522-d44c695819fd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\glad.c">
@@ -48,6 +51,12 @@
     <ClCompile Include="Source\Core\OpenGL Classes\IndexBuffer.cpp">
       <Filter>Исходные файлы\GL_Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Core\OpenGL Classes\Texture.cpp">
+      <Filter>Исходные файлы\GL_Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="stb.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\CubeRenderer.h">
@@ -68,6 +77,9 @@
     <ClInclude Include="Source\Core\OpenGL Classes\IndexBuffer.h">
       <Filter>Файлы заголовков\GL_Classes</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Core\OpenGL Classes\Texture.h">
+      <Filter>Файлы заголовков\GL_Classes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Source\Shaders\vertex.glsl">
@@ -82,5 +94,13 @@
     <None Include="Source\Shaders\CubeRendererVert.glsl">
       <Filter>Файлы ресурсов\Shaders</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Source\Resources\grass_block.png">
+      <Filter>Файлы ресурсов\Textures</Filter>
+    </Image>
+    <Image Include="Source\Resources\brick.png">
+      <Filter>Файлы ресурсов\Textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

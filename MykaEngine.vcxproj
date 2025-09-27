@@ -22,16 +22,19 @@
     <ClCompile Include="Source\Core\Camera.cpp" />
     <ClCompile Include="Source\Core\OpenGL Classes\IndexBuffer.cpp" />
     <ClCompile Include="Source\Core\OpenGL Classes\Shader.cpp" />
+    <ClCompile Include="Source\Core\OpenGL Classes\Texture.cpp" />
     <ClCompile Include="Source\Core\OpenGL Classes\VertexArray.cpp" />
     <ClCompile Include="Source\Core\OpenGL Classes\VertexBuffer.cpp" />
     <ClCompile Include="Source\Core\CubeRenderer.cpp" />
     <ClCompile Include="Source\glad.c" />
     <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="stb.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\Camera.h" />
     <ClInclude Include="Source\Core\OpenGL Classes\IndexBuffer.h" />
     <ClInclude Include="Source\Core\OpenGL Classes\Shader.h" />
+    <ClInclude Include="Source\Core\OpenGL Classes\Texture.h" />
     <ClInclude Include="Source\Core\OpenGL Classes\VertexArray.h" />
     <ClInclude Include="Source\Core\OpenGL Classes\VertexBuffer.h" />
     <ClInclude Include="Source\Core\CubeRenderer.h" />
@@ -41,6 +44,10 @@
     <None Include="Source\Shaders\CubeRendererVert.glsl" />
     <None Include="Source\Shaders\fragment.glsl" />
     <None Include="Source\Shaders\vertex.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Source\Resources\brick.png" />
+    <Image Include="Source\Resources\grass_block.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

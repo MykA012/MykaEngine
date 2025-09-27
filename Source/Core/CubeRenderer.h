@@ -10,6 +10,7 @@
 #include "OpenGL Classes/VertexArray.h"
 #include "OpenGL Classes/IndexBuffer.h"
 #include "OpenGL Classes/Shader.h"
+#include "OpenGL Classes/Texture.h"
 
 
 using namespace GL_Classes;
@@ -20,7 +21,7 @@ public:
 	CubeRenderer();
 	~CubeRenderer();
 
-	void RenderCube(const glm::vec3& position, float rotation, const glm::mat4& projection, const glm::mat4& view, Shader* shader);
+	void RenderCube(const glm::vec3& position, Texture& texture, float rotation, const glm::mat4& projection, const glm::mat4& view, Shader* shader);
 
 private:
 	VertexBuffer m_VBO;
