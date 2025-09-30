@@ -1,4 +1,5 @@
 #include "Core/CubeRenderer.h"
+#include "Core/Light.h"
 #include "Core/Camera.h"
 
 int main()
@@ -29,8 +30,12 @@ int main()
 	// Camera
 	Camera camera(width, height, glm::vec3(0.0f, 2.0f, 5.0f));
 
-	// Renderer
+	// Renderers
 	CubeRenderer cubeRenderer;
+
+	glm::vec4 lightColor = glm::vec4(0.0f, 1.0f, 1.0f, 1.0f);
+	Light lightCube;
+
 
 	// Textures
 	Texture brick("C:/Users/Vova/source/repos/MykaEngine/Source/Resources/brick.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
@@ -64,13 +69,12 @@ int main()
 		camera.Inputs(window, deltaTime);
 		camera.UpdateMatrices(45.0f, 0.1f, 100.0f);
 
-		for (float i = 0.0f; i < 50; i += 1.0f)
-		{
-			for (float j = 0.0f; j < 50; j += 1.0f)
-			{
-				cubeRenderer.RenderCube(glm::vec3(i, 0.0f, j), brick, 0, camera.GetProjectionMatrix(), camera.GetViewMatrix(), nullptr);
-			}
-		}
+		// Cube
+		cubeRenderer.RenderCube(glm::vec3(0.0f), brick, lightColor, 0.0f, camera.GetProjectionMatrix(), camera.GetViewMatrix(), nullptr);
+
+
+		// Light
+		lightCube.RenderLight(glm::vec3(3.0f), lightColor, camera.GetProjectionMatrix(), camera.GetViewMatrix(), nullptr);
 
 
 		glfwSwapBuffers(window);

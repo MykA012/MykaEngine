@@ -15,12 +15,12 @@
 
 using namespace GL_Classes;
 
-class CubeRenderer
+class Light
 {
 public:
-	CubeRenderer();
+	Light();
 
-	void RenderCube(const glm::vec3& position, Texture& texture, glm::vec4 lightColor, float rotation, const glm::mat4& projection, const glm::mat4& view, Shader* shader);
+	void RenderLight(const glm::vec3& position, glm::vec4 color, const glm::mat4& projection, const glm::mat4& view, Shader* shader);
 
 private:
 	VertexBuffer m_VBO;
@@ -28,3 +28,4 @@ private:
 	IndexBuffer m_IBO;
 	Shader m_DefaultShader;
 };
+

@@ -73,6 +73,16 @@ GLuint GL_Classes::Shader::getProgramID() const
 	return m_Program;
 }
 
+void GL_Classes::Shader::SetVector3f(const GLchar* name, const glm::vec3& value)
+{
+	glUniform3f(GetUniformLocation(name), value.x, value.y, value.z);
+}
+
+void GL_Classes::Shader::SetVector4f(const GLchar* name, const glm::vec4& value)
+{
+	glUniform4f(GetUniformLocation(name), value.x, value.y, value.z, value.w);
+}
+
 void GL_Classes::Shader::SetMatrix4(const GLchar* name, const glm::mat4& matrix)
 {
 	glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, glm::value_ptr(matrix));

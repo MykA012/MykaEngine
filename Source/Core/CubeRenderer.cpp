@@ -101,9 +101,7 @@ CubeRenderer::CubeRenderer() : m_DefaultShader(Shader::SHADERS_DIR + "CubeRender
 	m_VAO.Unbind();
 }
 
-CubeRenderer::~CubeRenderer() {}
-
-void CubeRenderer::RenderCube(const glm::vec3& position, Texture& texture, float rotation, const glm::mat4& projection, const glm::mat4& view, Shader* shader)
+void CubeRenderer::RenderCube(const glm::vec3& position, Texture& texture, glm::vec4 lightColor, float rotation, const glm::mat4& projection, const glm::mat4& view, Shader* shader)
 {
 	Shader* useShader;
 
@@ -122,6 +120,8 @@ void CubeRenderer::RenderCube(const glm::vec3& position, Texture& texture, float
 	texture.Bind();
 
 	useShader->Use();
+	useShader->SetVector4f("lightColor", lightColor);
+	useShader->SetVector3f("size", glm::vec3(2.0f));
 	useShader->SetMatrix4("model", model);
 	useShader->SetMatrix4("view", view);
 	useShader->SetMatrix4("projection", projection);

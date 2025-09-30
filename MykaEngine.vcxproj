@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Core\Camera.cpp" />
+    <ClCompile Include="Source\Core\Light.cpp" />
     <ClCompile Include="Source\Core\OpenGL Classes\IndexBuffer.cpp" />
     <ClCompile Include="Source\Core\OpenGL Classes\Shader.cpp" />
     <ClCompile Include="Source\Core\OpenGL Classes\Texture.cpp" />
@@ -32,6 +33,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\Camera.h" />
+    <ClInclude Include="Source\Core\Light.h" />
     <ClInclude Include="Source\Core\OpenGL Classes\IndexBuffer.h" />
     <ClInclude Include="Source\Core\OpenGL Classes\Shader.h" />
     <ClInclude Include="Source\Core\OpenGL Classes\Texture.h" />
@@ -43,6 +45,8 @@
     <None Include="Source\Shaders\CubeRendererFrag.glsl" />
     <None Include="Source\Shaders\CubeRendererVert.glsl" />
     <None Include="Source\Shaders\fragment.glsl" />
+    <None Include="Source\Shaders\lightFrag.glsl" />
+    <None Include="Source\Shaders\lightVert.glsl" />
     <None Include="Source\Shaders\vertex.glsl" />
   </ItemGroup>
   <ItemGroup>

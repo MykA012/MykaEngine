@@ -57,6 +57,9 @@
     <ClCompile Include="stb.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Core\Light.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\CubeRenderer.h">
@@ -80,6 +83,9 @@
     <ClInclude Include="Source\Core\OpenGL Classes\Texture.h">
       <Filter>Файлы заголовков\GL_Classes</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Core\Light.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Source\Shaders\vertex.glsl">
@@ -92,6 +98,12 @@
       <Filter>Файлы ресурсов\Shaders</Filter>
     </None>
     <None Include="Source\Shaders\CubeRendererVert.glsl">
+      <Filter>Файлы ресурсов\Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\lightFrag.glsl">
+      <Filter>Файлы ресурсов\Shaders</Filter>
+    </None>
+    <None Include="Source\Shaders\lightVert.glsl">
       <Filter>Файлы ресурсов\Shaders</Filter>
     </None>
   </ItemGroup>

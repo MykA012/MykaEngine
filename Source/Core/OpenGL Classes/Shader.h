@@ -27,6 +27,8 @@ namespace GL_Classes
 
 		GLuint getProgramID() const;
 
+		void SetVector3f(const GLchar* name, const glm::vec3& value);
+		void SetVector4f(const GLchar* name, const glm::vec4& value);
 		void SetMatrix4(const GLchar* name, const glm::mat4& matrix);
 		void SetInteger(const GLchar* name, GLuint value);
 
