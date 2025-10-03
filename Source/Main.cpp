@@ -33,7 +33,7 @@ int main()
 	// Renderers
 	CubeRenderer cubeRenderer;
 
-	glm::vec4 lightColor = glm::vec4(0.0f, 1.0f, 1.0f, 1.0f);
+	glm::vec4 lightColor = glm::vec4(1.0f);
 	Light lightCube;
 
 
